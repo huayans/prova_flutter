@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prava_flutter/src/components/button_web_view.dart';
 import 'package:prava_flutter/src/components/login_button.dart';
 import 'package:prava_flutter/src/components/starndard_background.dart';
@@ -85,8 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                       counter: SizedBox.shrink(),
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.person,
+                        FontAwesomeIcons.userLarge,
                         color: Color.fromRGBO(33, 40, 57, 1),
+                        size: 20,
                       ),
                     ),
                   ),
@@ -119,8 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                       counter: SizedBox.shrink(),
                       border: InputBorder.none,
                       prefixIcon: Icon(
-                        Icons.lock,
+                        FontAwesomeIcons.lock,
                         color: Color.fromRGBO(33, 40, 57, 1),
+                        size: 20,
                       ),
                     ),
                   ),

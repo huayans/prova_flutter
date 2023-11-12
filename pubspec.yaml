@@ -38,6 +38,7 @@ dependencies:
   webview_flutter: ^4.4.2
   flutter_mobx: ^2.1.1
   shared_preferences: ^2.2.2
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:

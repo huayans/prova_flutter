@@ -18,37 +18,79 @@ class _CaptureInformationPageState extends State<CaptureInformationPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              margin: EdgeInsets.all(16.0),
-              height: 500,
-              child: Card(
+              decoration: const BoxDecoration(
                 color: Colors.white,
-                elevation: 4,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.elliptical(5, 20),
-                  ),
+                borderRadius: BorderRadius.all(
+                  Radius.elliptical(5, 20),
                 ),
+              ),
+              margin: const EdgeInsets.all(16.0),
+              height: 350,
+              width: 350,
+              child: SingleChildScrollView(
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const ListTile(
-                      leading: Icon(Icons.star),
-                      title: Text('Título do Card'),
-                      subtitle: Text('Subtítulo do Card'),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.abc),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              'Texto Digitado 1',
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.edit,
+                            size: 50,
+                            color: Color.fromRGBO(8, 8, 8, 1),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.cancel,
+                            size: 50,
+                            color: Color.fromRGBO(203, 54, 56, 1),
+                          ),
+                        ),
+                      ],
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Divider(),
-                    ),
+                    )
                   ],
                 ),
               ),
             ),
-            ButtonWebView(),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              width: 300,
+              child: TextFormField(
+                autofocus: true,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 70),
+                  border: InputBorder.none,
+                  hintText: 'Digite seu texto',
+                  hintStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(7, 7, 7, 1),
+                  ),
+                ),
+              ),
+            ),
+            const ButtonWebView(),
           ],
         ),
       ),
