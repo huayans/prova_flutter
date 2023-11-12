@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prava_flutter/controller/web_view_container.dart';
-import 'package:prava_flutter/pages/login_page.dart';
+import 'package:prava_flutter/src/controller/web_view_container.dart';
+import 'package:prava_flutter/src/pages/capture_information_page.dart';
+import 'package:prava_flutter/src/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {'/webViewContainer': (context) => const WebViewContainer()},
+      routes: {
+        '/webViewContainer': (context) => const WebViewContainer(),
+        '/captureInformation': (context) => const CaptureInformationPage(),
+      },
       title: 'Prova Flutter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

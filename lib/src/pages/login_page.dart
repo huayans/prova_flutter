@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prava_flutter/src/components/button_web_view.dart';
+import 'package:prava_flutter/src/components/login_button.dart';
+import 'package:prava_flutter/src/components/starndard_background.dart';
+import 'package:prava_flutter/src/components/title_login.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -37,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
     if (_formKey.currentState!.validate()) {
-      print('aqui vai navegar pra proxima tela');
+      Navigator.of(context).pushNamed('/captureInformation');
     }
   }
 
@@ -51,37 +55,13 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Form(
         key: _formKey,
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromRGBO(30, 78, 98, 1),
-                Color.fromRGBO(45, 149, 142, 1)
-              ],
-            ),
-          ),
-          child: Padding(
+        child: StandardBackground(
+          component: Padding(
             padding: const EdgeInsets.only(top: 200),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 70, bottom: 10),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: const Text(
-                      'Usuário',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
+                const TitleLogin(title: "Usuário"),
                 Container(
                   width: 300,
                   decoration: BoxDecoration(
@@ -89,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                   ),
                   child: TextFormField(
+                    maxLength: 20,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor, digite um usuário.';
@@ -101,6 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     controller: _usernameController,
                     decoration: const InputDecoration(
+                      counter: SizedBox.shrink(),
+                      border: InputBorder.none,
                       prefixIcon: Icon(
                         Icons.person,
                         color: Color.fromRGBO(33, 40, 57, 1),
@@ -109,19 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.only(left: 70, bottom: 10),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: const Text(
-                      'Senha',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
+                const TitleLogin(title: "Senha"),
                 Container(
                   width: 300,
                   decoration: BoxDecoration(
@@ -129,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                   ),
                   child: TextFormField(
+                    maxLength: 20,
                     controller: _passwordController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -144,6 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     obscureText: true,
                     decoration: const InputDecoration(
+                      counter: SizedBox.shrink(),
+                      border: InputBorder.none,
                       prefixIcon: Icon(
                         Icons.lock,
                         color: Color.fromRGBO(33, 40, 57, 1),
@@ -152,35 +126,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: 150,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color.fromRGBO(68, 189, 110, 1),
-                      ),
-                    ),
-                    onPressed: login,
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/webViewContainer');
-                    },
-                    child: const Text(
-                      'Política de Privacidade ',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                LoginButton(onPressed: login),
+                const ButtonWebView(),
               ],
             ),
           ),
