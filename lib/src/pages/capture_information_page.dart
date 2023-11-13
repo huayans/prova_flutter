@@ -104,7 +104,6 @@ class _CaptureInformationPageState extends State<CaptureInformationPage> {
                                                   ],
                                                 ),
                                               );
-                                              /* taskListStore.removeTask(task); */
                                             },
                                             icon: const Icon(
                                               Icons.cancel,
